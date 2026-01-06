@@ -9,15 +9,10 @@ import TrustBuilding from "./components/TrustBuilding";
 
 export default function Home() {
   return (
-    <>
-      <div className="min-h-screen bg-black flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 w-full max-w-full overflow-hidden px-4 md:px-8 py-4 md:py-8">
+    <div className="overflow-x-hidden w-full">
+      <div className="min-h-screen bg-black flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 w-full px-4 md:px-8 py-4 md:py-8">
         {/* Left section with SmokeShow and logo */}
-        <motion.div 
-          className="relative w-full max-w-full lg:max-w-[1000px] lg:w-[1000px] h-[400px] md:h-[500px] lg:h-[700px] overflow-hidden flex-shrink-0"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="relative w-full lg:w-[1000px] h-[400px] md:h-[500px] lg:h-[700px] overflow-hidden flex-shrink-0">
           <SmokeShow />
           <div className="absolute inset-0 z-10 flex items-center justify-center p-4 md:p-8 pointer-events-none">
             <Image
@@ -29,7 +24,7 @@ export default function Home() {
               className="drop-shadow-2xl w-[200px] h-[200px] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px]"
             />
           </div>
-        </motion.div>
+        </div>
 
         {/* Right section with content */}
         <div className="flex-1 text-white max-w-2xl w-full">
@@ -111,6 +106,6 @@ export default function Home() {
 
       {/* Trust Building Section */}
       <TrustBuilding />
-    </>
+    </div>
   );
 }
