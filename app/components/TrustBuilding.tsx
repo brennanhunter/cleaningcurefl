@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { FileText } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function TrustBuilding() {
   return (
@@ -7,7 +10,13 @@ export default function TrustBuilding() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left Box - Why Cleaning Cure */}
-          <div className="bg-green-900 p-12 rounded-lg">
+          <motion.div 
+            className="bg-green-900 p-12 rounded-lg"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-4xl font-bold text-white mb-6">
               Why Cleaning Cure?
             </h2>
@@ -37,17 +46,23 @@ export default function TrustBuilding() {
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Box - Placeholder */}
-          <div className="bg-green-800 p-12 rounded-lg">
+          <motion.div 
+            className="bg-green-800 p-12 rounded-lg"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <h2 className="text-4xl font-bold text-white mb-6">
               Placeholder Title
             </h2>
             <p className="text-lg text-white leading-relaxed">
               This is placeholder content. You can update this section later with the information you want to display here. It could be testimonials, certifications, or any other trust-building content.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
