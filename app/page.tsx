@@ -13,7 +13,7 @@ export default function Home() {
       <div className="min-h-screen bg-black flex flex-col lg:flex-row items-center justify-between p-4 md:p-8 gap-8 lg:gap-16 overflow-x-hidden">
         {/* Left section with SmokeShow and logo */}
         <motion.div 
-          className="relative w-full lg:w-[1000px] h-[400px] md:h-[500px] lg:h-[700px] overflow-hidden flex-shrink-0"
+          className="relative w-full max-w-full lg:w-[1000px] h-[400px] md:h-[500px] lg:h-[700px] overflow-hidden flex-shrink-0"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
