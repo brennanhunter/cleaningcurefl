@@ -10,10 +10,10 @@ import TrustBuilding from "./components/TrustBuilding";
 export default function Home() {
   return (
     <>
-      <div className="min-h-screen bg-black flex flex-col lg:flex-row items-center justify-between p-4 md:p-8 gap-8 lg:gap-16 overflow-x-hidden">
+      <div className="min-h-screen bg-black flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 w-full max-w-full overflow-hidden px-4 md:px-8 py-4 md:py-8">
         {/* Left section with SmokeShow and logo */}
         <motion.div 
-          className="relative w-full max-w-full lg:w-[1000px] h-[400px] md:h-[500px] lg:h-[700px] overflow-hidden flex-shrink-0"
+          className="relative w-full max-w-full lg:max-w-[1000px] lg:w-[1000px] h-[400px] md:h-[500px] lg:h-[700px] overflow-hidden flex-shrink-0"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
