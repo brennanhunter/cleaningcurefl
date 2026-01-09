@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Phone, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -9,6 +10,7 @@ import { useState, useEffect } from "react";
 export default function Header() {
   const [hasAnimated, setHasAnimated] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const animated = sessionStorage.getItem("headerAnimated");
@@ -20,22 +22,30 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-green-900 shadow-md">
-      <div className="flex items-center justify-between px-4 md:px-6 py-4 md:py-8">
+      <div className="flex items-end justify-between px-4 md:px-6 py-4 md:py-6">
         {/* Logo */}
         <motion.div
           initial={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.05 }}
         >
           <Link href="/" className="flex items-center">
-            <Image
-              src="/logos/logo-smoke.png"
-              alt="Cleaning Cure FL"
-              width={60}
-              height={60}
-              priority
-              className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[83px] lg:h-[83px]"
-            />
+            <motion.div
+              whileHover={{ 
+                filter: "drop-shadow(0 0 20px rgba(34, 197, 94, 0.8))"
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src="/logos/logo-smoke.png"
+                alt="Cleaning Cure FL"
+                width={60}
+                height={60}
+                priority
+                className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[83px] lg:h-[83px]"
+              />
+            </motion.div>
           </Link>
         </motion.div>
 
@@ -49,7 +59,7 @@ export default function Header() {
         </button>
 
         {/* Navigation - Desktop */}
-        <nav className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 gap-4 xl:gap-8">
+        <nav className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 gap-4 xl:gap-8 pb-2">
           <motion.div
             initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -57,9 +67,9 @@ export default function Header() {
           >
             <Link
               href="/mildew-stain-remover"
-              className="text-white text-2xl font-bold hover:opacity-70 transition-opacity"
+              className="text-white text-base font-bold hover:opacity-70 transition-opacity select-none"
             >
-              Mildew Stain Remover
+              <span className={`nav-link ${pathname === '/mildew-stain-remover' ? 'nav-link-active' : ''}`}>Mildew Stain Remover</span>
             </Link>
           </motion.div>
           <motion.div
@@ -69,9 +79,9 @@ export default function Header() {
           >
             <Link
               href="/drain-conditioner"
-              className="text-white text-2xl font-bold hover:opacity-70 transition-opacity"
+              className="text-white text-base font-bold hover:opacity-70 transition-opacity select-none"
             >
-              Drain Conditioner
+              <span className={`nav-link ${pathname === '/drain-conditioner' ? 'nav-link-active' : ''}`}>Drain Conditioner</span>
             </Link>
           </motion.div>
           <motion.div
@@ -81,9 +91,9 @@ export default function Header() {
           >
             <Link
               href="/about"
-              className="text-white text-2xl font-bold hover:opacity-70 transition-opacity"
+              className="text-white text-base font-bold hover:opacity-70 transition-opacity select-none"
             >
-              About
+              <span className={`nav-link ${pathname === '/about' ? 'nav-link-active' : ''}`}>About</span>
             </Link>
           </motion.div>
           <motion.div
@@ -93,16 +103,16 @@ export default function Header() {
           >
             <Link
               href="/contact"
-              className="text-white text-2xl font-bold hover:opacity-70 transition-opacity"
+              className="text-white text-base font-bold hover:opacity-70 transition-opacity select-none"
             >
-              Contact
+              <span className={`nav-link ${pathname === '/contact' ? 'nav-link-active' : ''}`}>Contact</span>
             </Link>
           </motion.div>
         </nav>
 
         {/* Call Now Button - Desktop */}
         <motion.a
-          href="tel:+1234567890"
+          href="tel:+14073121732"
           className="hidden lg:flex relative items-center gap-1 md:gap-2 px-3 md:px-6 py-2 md:py-3 bg-green-700 text-white text-base md:text-xl lg:text-2xl font-bold rounded-lg hover:bg-green-600 transition-all shadow-[0_0_20px_rgba(255,255,255,0.5),0_0_40px_rgba(255,255,255,0.3),0_0_60px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.7),0_0_50px_rgba(255,255,255,0.5),0_0_80px_rgba(255,255,255,0.3)]"
           initial={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -154,7 +164,7 @@ export default function Header() {
                 Contact
               </Link>
               <a
-                href="tel:+1234567890"
+                href="tel:+14073121732"
                 className="flex items-center justify-center gap-2 px-6 py-3 bg-green-700 text-white text-xl font-bold rounded-lg hover:bg-green-600 transition-colors shadow-lg mt-2"
                 onClick={() => setMobileMenuOpen(false)}
               >

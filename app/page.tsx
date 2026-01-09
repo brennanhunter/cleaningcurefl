@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Check } from "lucide-react";
@@ -10,7 +9,9 @@ import TrustBuilding from "./components/TrustBuilding";
 export default function Home() {
   return (
     <div className="overflow-x-hidden w-full">
-      <div className="min-h-screen bg-black flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 w-full px-4 md:px-8 py-4 md:py-8">
+      <div className="min-h-screen relative flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 w-full px-4 md:px-8 py-4 md:py-8">
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black via-green-900 via-green-950 to-black animate-gradient" />
         {/* Left section with SmokeShow and logo */}
         <div className="relative w-full lg:w-[1000px] h-[400px] md:h-[500px] lg:h-[700px] overflow-hidden flex-shrink-0">
           <SmokeShow />
