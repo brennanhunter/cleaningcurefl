@@ -1,12 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "About Us - Professional Cleaning Solutions",
-  description: "Cleaning Cure provides professional-grade cleaning solutions for Florida's hospitality and commercial industries. Quality products you can trust.",
-};
 
 export default function About() {
   return (

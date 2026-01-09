@@ -4,13 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Mildew Stain Remover - Professional Grade Formula",
-  description: "Instantly remove mildew stains from bathroom tile, grout, boats, patio furniture, and more. Professional-grade mildew stain remover that works without scrubbing. Perfect for Florida's humid climate.",
-  keywords: ["mildew stain remover", "mildew removal", "how to remove mildew stains", "bathroom mildew cleaner", "boat mildew cleaner", "florida mildew", "cleaning cure mildew"],
-};
 
 export default function MildewStainRemover() {
   return (
