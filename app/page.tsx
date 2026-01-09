@@ -35,7 +35,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            High Quality Cleaning Solutions Made in Florida, for Floridians
+            High Quality Cleaning Solutions for Floridians
           </motion.h1>
 
           <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
@@ -49,7 +49,7 @@ export default function Home() {
                 <Check className="w-5 h-5 text-white" />
               </div>
               <p className="text-base md:text-lg lg:text-xl">
-                Family Business Supporting Main Street
+                Family Business Supporting Volusia
               </p>
             </motion.div>
 
@@ -63,7 +63,7 @@ export default function Home() {
                 <Check className="w-5 h-5 text-white" />
               </div>
               <p className="text-base md:text-lg lg:text-xl">
-                High Quality Products at Great Prices
+                High Quality Products at Great Prices that work!
               </p>
             </motion.div>
 

@@ -38,7 +38,7 @@ export default function MildewStainRemover() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              Our powerful Mildew Stain Remover is specially formulated to tackle tough mildew stains on a wide variety of surfaces. Made right here in Florida, it's designed to handle the unique challenges of our humid climate, both indoors and out.
+              Our powerful Mildew Stain Remover is specially formulated to tackle tough mildew stains on a wide variety of surfaces. It's designed to handle the unique challenges of humid climates, both indoors and out.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ export default function MildewStainRemover() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.0 }}
             >
-              Trust Cleaning Cure FL for a professional-grade formula that's tough on mildew but gentle on your surfaces and the environment. Safe for use on most surfaces when used as directed.
+              Trust Cleaning Cure for a professional-grade formula that's tough on mildew but gentle on your surfaces and the environment. Safe for use on most surfaces when used as directed.
             </motion.p>
           </div>
           

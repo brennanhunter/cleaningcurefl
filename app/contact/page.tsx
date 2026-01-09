@@ -106,7 +106,7 @@ export default function Contact() {
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-3 bg-green-900/20 border-2 border-green-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 transition-colors"
+                    className="w-full px-4 py-3 bg-green-900/20 border-2 border-green-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.4)] focus:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all"
                     placeholder="Your Name"
                   />
                 </motion.div>
@@ -125,7 +125,7 @@ export default function Contact() {
                     id="phone"
                     name="phone"
                     required
-                    className="w-full px-4 py-3 bg-green-900/20 border-2 border-green-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 transition-colors"
+                    className="w-full px-4 py-3 bg-green-900/20 border-2 border-green-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.4)] focus:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all"
                     placeholder="(123) 456-7890"
                   />
                 </motion.div>
@@ -144,7 +144,7 @@ export default function Contact() {
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 bg-green-900/20 border-2 border-green-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 transition-colors"
+                    className="w-full px-4 py-3 bg-green-900/20 border-2 border-green-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.4)] focus:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all"
                     placeholder="your@email.com"
                   />
                 </motion.div>
@@ -163,7 +163,7 @@ export default function Contact() {
                     name="message"
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-green-900/20 border-2 border-green-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-green-900/20 border-2 border-green-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.4)] focus:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all resize-none"
                     placeholder="How can we help you?"
                   />
                 </motion.div>

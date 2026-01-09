@@ -38,7 +38,7 @@ export default function DrainConditioner() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              Our Non-Acid Drain Opener & Conditioner is a fast-acting, odorless, and extremely effective solution that saves you both time and money. Made right here in Florida, it's formulated to tackle the toughest drain blockages with professional-grade power.
+              Our Non-Acid Drain Opener & Conditioner is a fast-acting, odorless, and extremely effective solution that saves you both time and money. It's formulated to tackle the toughest drain blockages with professional-grade power.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ export default function DrainConditioner() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.0 }}
             >
-              With regular use, your drains will remain blockage-free and flowing smoothly. Trust Cleaning Cure FL for a non-acid formula that's tough on clogs but safe for your pipes when used as directed.
+              With regular use, your drains will remain blockage-free and flowing smoothly. Trust Cleaning Cure for a non-acid formula that's tough on clogs but safe for your pipes when used as directed.
             </motion.p>
           </div>
           

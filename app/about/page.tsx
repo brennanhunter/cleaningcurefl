@@ -28,14 +28,14 @@ export default function About() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                At Cleaning Cure FL, we are here for you. Based in Florida and understanding the unique cleaning challenges of our environment, we provide professional-grade cleaning solutions with unmatched service and quality.
+                At Cleaning Cure, we are here for you. Based in Florida and understanding the unique cleaning challenges of our environment, we provide professional-grade cleaning solutions with unmatched service and quality.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                We work with residential and commercial customers to deliver the powerful, effective products you need to keep your property clean and protected.
+                We work with hospitality and commercial customers to deliver the powerful, effective products you need to keep your property clean and protected.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -43,7 +43,7 @@ export default function About() {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 className="italic text-green-400 text-xl md:text-2xl"
               >
-                Cleaning Cure FL. Solutions for You.
+                Cleaning Cure. Solutions for You.
               </motion.p>
             </div>
           </motion.section>
@@ -80,7 +80,7 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                Whether you're tackling stubborn mildew stains or maintaining clear-flowing drains, Cleaning Cure FL provides solutions that work effectively and efficiently, giving you more time to enjoy Florida living.
+                Whether you're tackling stubborn mildew stains or maintaining clear-flowing drains, Cleaning Cure provides solutions that work effectively and efficiently, giving you more time to enjoy Florida living.
               </motion.p>
             </div>
           </motion.section>
