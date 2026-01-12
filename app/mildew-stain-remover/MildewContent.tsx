@@ -69,7 +69,7 @@ export default function MildewContent() {
             transition={{ duration: 0.5, delay: 1.4 }}
           >
             <Link
-              href="/sds/mildew-stain-remover.pdf"
+              href="/SDS/mildew-stain-sds.pdf"
               target="_blank"
               className="inline-flex items-center gap-2 px-8 py-4 bg-green-600 text-white text-xl font-bold rounded-lg hover:bg-green-500 transition-colors shadow-lg"
             >
