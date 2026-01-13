@@ -3,13 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, Menu, X } from "lucide-react";
+import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function Header() {
   const [hasAnimated, setHasAnimated] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -60,34 +61,60 @@ export default function Header() {
 
         {/* Navigation - Desktop */}
         <nav className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 gap-4 xl:gap-8 pb-2">
+          {/* Products Dropdown */}
           <motion.div
             initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
+            className="relative"
+            onMouseEnter={() => setProductsDropdownOpen(true)}
+            onMouseLeave={() => setProductsDropdownOpen(false)}
           >
-            <Link
-              href="/mildew-stain-remover"
-              className="text-white text-base font-bold hover:opacity-70 transition-opacity select-none"
+            <button
+              className="text-white text-base font-bold hover:opacity-70 transition-opacity select-none flex items-center gap-1"
             >
-              <span className={`nav-link ${pathname === '/mildew-stain-remover' ? 'nav-link-active' : ''}`}>Mildew Stain Remover</span>
-            </Link>
+              <span className={`nav-link ${pathname === '/products' || pathname === '/mildew-stain-remover' || pathname === '/drain-conditioner' ? 'nav-link-active' : ''}`}>
+                Products
+              </span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${productsDropdownOpen ? 'rotate-180' : ''}`} />
+            </button>
+            
+            <AnimatePresence>
+              {productsDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-full mt-2 bg-green-800 rounded-lg shadow-lg overflow-hidden min-w-[220px]"
+                >
+                  <Link
+                    href="/products"
+                    className="block px-4 py-3 text-white text-base font-semibold hover:bg-green-700 transition-colors"
+                  >
+                    All Products
+                  </Link>
+                  <Link
+                    href="/mildew-stain-remover"
+                    className="block px-4 py-3 text-white text-base font-semibold hover:bg-green-700 transition-colors"
+                  >
+                    Mildew Stain Remover
+                  </Link>
+                  <Link
+                    href="/drain-conditioner"
+                    className="block px-4 py-3 text-white text-base font-semibold hover:bg-green-700 transition-colors"
+                  >
+                    Drain Conditioner
+                  </Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
+
           <motion.div
             initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Link
-              href="/drain-conditioner"
-              className="text-white text-base font-bold hover:opacity-70 transition-opacity select-none"
-            >
-              <span className={`nav-link ${pathname === '/drain-conditioner' ? 'nav-link-active' : ''}`}>Drain Conditioner</span>
-            </Link>
-          </motion.div>
-          <motion.div
-            initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
           >
             <Link
               href="/about"
@@ -99,7 +126,7 @@ export default function Header() {
           <motion.div
             initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
             <Link
               href="/contact"
@@ -135,20 +162,43 @@ export default function Header() {
             className="lg:hidden bg-green-800 overflow-hidden"
           >
             <nav className="flex flex-col p-4 space-y-4">
-              <Link
-                href="/mildew-stain-remover"
-                className="text-white text-xl font-bold hover:opacity-70 transition-opacity py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Mildew Stain Remover
-              </Link>
-              <Link
-                href="/drain-conditioner"
-                className="text-white text-xl font-bold hover:opacity-70 transition-opacity py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Drain Conditioner
-              </Link>
+              {/* Products Section */}
+              <div>
+                <button
+                  onClick={() => setProductsDropdownOpen(!productsDropdownOpen)}
+                  className="text-white text-xl font-bold hover:opacity-70 transition-opacity py-2 flex items-center justify-between w-full"
+                >
+                  <span>Products</span>
+                  <ChevronDown className={`w-5 h-5 transition-transform ${productsDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {productsDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden pl-4 pt-2 space-y-2"
+                    >
+                      <Link
+                        href="/mildew-stain-remover"
+                        className="block text-white text-lg hover:opacity-70 transition-opacity py-2"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        Mildew Stain Remover
+                      </Link>
+                      <Link
+                        href="/drain-conditioner"
+                        className="block text-white text-lg hover:opacity-70 transition-opacity py-2"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        Drain Conditioner
+                      </Link>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <Link
                 href="/about"
                 className="text-white text-xl font-bold hover:opacity-70 transition-opacity py-2"

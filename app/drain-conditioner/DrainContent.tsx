@@ -64,10 +64,19 @@ export default function DrainContent() {
           />
           
           <motion.div
+            className="flex flex-wrap gap-4"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 1.4 }}
           >
+            <Link
+              href="/directions/drain-conditioner.pdf"
+              target="_blank"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-green-600 text-white text-xl font-bold rounded-lg hover:bg-green-500 transition-colors shadow-lg"
+            >
+              <FileText className="w-6 h-6" />
+              Instructions
+            </Link>
             <Link
               href="/SDS/drain-cleaner-sds.pdf"
               target="_blank"

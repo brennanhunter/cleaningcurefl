@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${libreFranklin.variable} font-sans antialiased overflow-x-hidden`}
+        className={`${libreFranklin.variable} font-sans antialiased overflow-x-hidden cursor-default`}
       >
         <Header />
         {children}

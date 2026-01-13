@@ -71,8 +71,35 @@
   animation: float 4s ease-in-out infinite;
 }
 
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-float-subtle {
+  animation: float-subtle 5s ease-in-out infinite;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  caret-color: transparent;
+}
+
+*, *::before, *::after {
+  caret-color: transparent !important;
+  outline: none !important;
+}
+
+a, button {
+  cursor: pointer !important;
+}
+
+p, h1, h2, h3, h4, h5, h6, span, div:not(:has(a)):not([role="button"]), section, li {
+  cursor: default !important;
 }

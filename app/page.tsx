@@ -9,36 +9,39 @@ import TrustBuilding from "./components/TrustBuilding";
 export default function Home() {
   return (
     <div className="overflow-x-hidden w-full">
-      <div className="min-h-screen relative flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 w-full px-4 md:px-8 py-4 md:py-8">
+      <div className="min-h-screen relative flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 w-full px-4 md:px-8 py-8 md:py-12">
         {/* Animated gradient background */}
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black via-green-900 via-green-950 to-black animate-gradient" />
-        {/* Left section with SmokeShow and logo */}
-        <div className="relative w-full lg:w-[1000px] h-[400px] md:h-[500px] lg:h-[700px] overflow-hidden flex-shrink-0">
-          <SmokeShow />
-          <div className="absolute inset-0 z-10 flex items-center justify-center p-4 md:p-8 pointer-events-none">
-            <Image
-              src="/logos/logo-transparentbg.png"
-              alt="Cleaning Cure FL Logo"
-              width={600}
-              height={600}
-              priority
-              className="drop-shadow-2xl w-[200px] h-[200px] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px]"
-            />
-          </div>
-        </div>
-
-        {/* Right section with content */}
-        <div className="flex-1 text-white max-w-2xl w-full">
+        
+        {/* Left column with title and logo */}
+        <div className="flex-1 flex flex-col items-start w-full max-w-3xl">
           <motion.h1 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12 leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-8 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            High Quality Cleaning Solutions for Floridians
+            Supplier of High Quality Cleaning Solutions for Floridians
           </motion.h1>
+          
+          <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden flex-shrink-0">
+            <SmokeShow />
+            <div className="absolute inset-0 z-10 flex items-center justify-center p-4 md:p-8 pointer-events-none">
+              <Image
+                src="/logos/logo-transparentbg.png"
+                alt="Cleaning Cure FL Logo"
+                width={400}
+                height={400}
+                priority
+                className="drop-shadow-2xl w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px]"
+              />
+            </div>
+          </div>
+        </div>
 
-          <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
+        {/* Right column with checklist */}
+        <div className="flex-1 text-white max-w-2xl w-full">
+          <div className="space-y-3 md:space-y-6 mb-6 md:mb-12">
             <motion.div 
               className="flex items-start gap-4"
               initial={{ opacity: 0, x: 20 }}
