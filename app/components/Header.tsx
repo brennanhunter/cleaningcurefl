@@ -23,6 +23,13 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-green-900 shadow-md">
+      {/* Top tagline - Desktop only */}
+      <div className="hidden lg:block bg-green-800 py-2 px-4 md:px-6">
+        <p className="text-white text-center text-sm md:text-base font-semibold">
+          Distributor of High Quality Cleaning Solutions
+        </p>
+      </div>
+      
       <div className="flex items-end justify-between px-4 md:px-6 py-4 md:py-6">
         {/* Logo */}
         <motion.div
