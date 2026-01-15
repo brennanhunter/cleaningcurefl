@@ -22,8 +22,7 @@ export default function TrustBuilding() {
               Why Cleaning Cure?
             </h2>
             <p className="text-lg text-white leading-relaxed">
-              We believe in providing excellent cleaning solutions directly to Florida from neighbors you can trust while cutting out corporate middlemen providing lower quality and higher priced products. We specialize in just a few cleaning solutions, so you can be sure, we know how to make them well.
-            </p>
+              We believe in providing exceptional cleaning supplies directly to our neighbors, right here in Florida. By cutting out freight, corporate middlemen, advertisements, and red tape, we can offer higher quality products at lower prices. We only carry the essential products you need, so you can be sure they are made well and are effective.            </p>
           </motion.div>
 
           {/* Right Box - Explore Products */}
@@ -51,7 +50,7 @@ export default function TrustBuilding() {
             >
               <div className="inline-block px-5 py-2 bg-green-800/60 border border-green-600/40 rounded-lg">
                 <p className="text-base md:text-lg font-semibold text-white">
-                  Stocked right here, locally, in Volusia County
+                  Stocked right here in Volusia County
                 </p>
               </div>
             </motion.div>
