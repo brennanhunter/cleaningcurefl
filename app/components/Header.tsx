@@ -23,13 +23,6 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-green-900 shadow-md">
-      {/* Top tagline - Desktop only */}
-      <div className="hidden lg:block bg-green-800 py-2 px-4 md:px-6">
-        <p className="text-white text-center text-sm md:text-base font-semibold">
-          Distributor of High Quality Cleaning Solutions
-        </p>
-      </div>
-      
       <div className="flex items-end justify-between px-4 md:px-6 py-4 md:py-6">
         {/* Logo */}
         <motion.div
@@ -67,7 +60,14 @@ export default function Header() {
         </button>
 
         {/* Navigation - Desktop */}
-        <nav className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 gap-4 xl:gap-8 pb-2">
+        <nav className="hidden lg:flex flex-col items-center absolute left-1/2 transform -translate-x-1/2 pb-2 -mt-2">
+          {/* Tagline above nav items */}
+          <p className="text-white text-center text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
+            Distributor of High Quality Cleaning Solutions
+          </p>
+          
+          {/* Nav items */}
+          <div className="flex gap-4 xl:gap-8">
           {/* Products Dropdown */}
           <motion.div
             initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
@@ -142,6 +142,7 @@ export default function Header() {
               <span className={`nav-link ${pathname === '/contact' ? 'nav-link-active' : ''}`}>Contact</span>
             </Link>
           </motion.div>
+          </div>
         </nav>
 
         {/* Call Now Button - Desktop */}
