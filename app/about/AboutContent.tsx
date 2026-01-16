@@ -14,7 +14,7 @@ export default function AboutContent() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-green-500">
-              Service You Rely On
+              Service You Can Rely On
             </h2>
             <motion.hr 
               className="border-green-600 border-t-2 mb-8"
@@ -43,7 +43,7 @@ export default function AboutContent() {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 className="italic text-green-400 text-xl md:text-2xl"
               >
-                Cleaning Cure. Solutions for You.
+                Cleaning Cure. Your Remedy For Stains.
               </motion.p>
             </div>
           </motion.section>

@@ -60,9 +60,9 @@ export default function Header() {
         </button>
 
         {/* Navigation - Desktop */}
-        <nav className="hidden lg:flex flex-col items-center absolute left-1/2 transform -translate-x-1/2 pb-2 -mt-2">
+        <nav className="hidden lg:flex flex-col items-center absolute left-1/2 transform -translate-x-1/2 pb-2 -mt-2 max-w-[calc(100%-200px)]">
           {/* Tagline above nav items */}
-          <p className="text-white text-center text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
+          <p className="text-white text-center text-base lg:text-xl xl:text-2xl 2xl:text-4xl font-bold mb-2 whitespace-nowrap">
             Distributor of High Quality Cleaning Solutions
           </p>
           

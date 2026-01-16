@@ -47,6 +47,20 @@ export default function Home() {
                 className="flex items-start gap-4"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-600 flex items-center justify-center">
+                  <Check className="w-5 h-5 text-white" />
+                </div>
+                <p className="text-base md:text-lg lg:text-xl">
+                  Specializing in Florida's Commercial and Hospitality Industries
+                </p>
+              </motion.div>
+
+              <motion.div 
+                className="flex items-start gap-4"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-600 flex items-center justify-center">

@@ -22,7 +22,7 @@ export default function TrustBuilding() {
               Why Cleaning Cure?
             </h2>
             <p className="text-lg text-white leading-relaxed">
-              We believe in providing exceptional cleaning supplies directly to our neighbors, right here in Florida. By cutting out freight, corporate middlemen, advertisements, and red tape, we can offer higher quality products at lower prices. We only carry the essential products you need, so you can be sure they are made well and are effective.            </p>
+              We believe in providing exceptional cleaning supplies directly to our neighbors, right here in Florida. By cutting out freight, corporate middlemen, advertisements, and red tape we can offer higher quality products at lower prices. We only carry the essential products you need, so you can be sure they are well made and effective.            </p>
           </motion.div>
 
           {/* Right Box - Explore Products */}
