@@ -1637,8 +1637,13 @@ const WebGL: React.FC = () => {
     // Initial splats for startup effect
     multipleSplats(gl, Math.floor(Math.random() * 20) + 5, splatProgram, framebuffers.velocity, framebuffers.dye, blit, canvas);
 
-    // Animation loop
+    // Animation loop with proper cleanup tracking
+    let animationFrameId: number;
+    let isRunning = true;
+    
     const animate = () => {
+      if (!isRunning) return;
+      
       const dt = calcDeltaTime();
       
       if (resizeCanvas()) {
@@ -1671,13 +1676,13 @@ const WebGL: React.FC = () => {
         blurProgram
       }, displayMaterial, blit, canvas);
 
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
     };
 
     animate();
 
     // Event handlers
-    const handleMouseDown = (e: MouseEvent) => {
+    const handleMouseEnter = (e: MouseEvent) => {
       const posX = scaleByPixelRatio(e.offsetX);
       const posY = scaleByPixelRatio(e.offsetY);
       let pointer = pointers.find(p => p.id === -1);
@@ -1689,14 +1694,21 @@ const WebGL: React.FC = () => {
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      const pointer = pointers.find(p => p.id === -1);
-      if (!pointer || !pointer.down) return;
+      let pointer = pointers.find(p => p.id === -1);
+      if (!pointer) {
+        pointer = pointerPrototype();
+        pointers.push(pointer);
+      }
+      // Auto-activate pointer if not already down
+      if (!pointer.down) {
+        updatePointerDownData(pointer, -1, scaleByPixelRatio(e.offsetX), scaleByPixelRatio(e.offsetY), canvas);
+      }
       const posX = scaleByPixelRatio(e.offsetX);
       const posY = scaleByPixelRatio(e.offsetY);
       updatePointerMoveData(pointer, posX, posY, canvas);
     };
 
-    const handleMouseUp = () => {
+    const handleMouseLeave = () => {
       const pointer = pointers.find(p => p.id === -1);
       if (pointer) {
         updatePointerUpData(pointer);
@@ -1829,9 +1841,9 @@ const WebGL: React.FC = () => {
     };
 
     // Add event listeners
-    canvas.addEventListener('mousedown', handleMouseDown);
+    canvas.addEventListener('mouseenter', handleMouseEnter);
     canvas.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseup', handleMouseUp);
+    canvas.addEventListener('mouseleave', handleMouseLeave);
     canvas.addEventListener('touchstart', handleTouchStart, false);
     canvas.addEventListener('touchmove', handleTouchMove, false);
     window.addEventListener('touchend', handleTouchEnd);
@@ -1839,9 +1851,16 @@ const WebGL: React.FC = () => {
 
     // Cleanup function
     return () => {
-      canvas.removeEventListener('mousedown', handleMouseDown);
+      // Stop the animation loop
+      isRunning = false;
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+      
+      // Remove event listeners
+      canvas.removeEventListener('mouseenter', handleMouseEnter);
       canvas.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
+      canvas.removeEventListener('mouseleave', handleMouseLeave);
       canvas.removeEventListener('touchstart', handleTouchStart);
       canvas.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
