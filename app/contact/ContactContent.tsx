@@ -1,9 +1,41 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Phone, Mail, MapPin, X, CheckCircle } from "lucide-react";
+import { useState } from "react";
 
 export default function ContactContent() {
+  const [showModal, setShowModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xqeekqdo", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setShowModal(true);
+        form.reset();
+      } else {
+        alert("Oops! There was a problem submitting your form. Please try again.");
+      }
+    } catch (error) {
+      alert("Oops! There was a problem submitting your form. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className="overflow-x-hidden w-full">
       <div className="min-h-screen bg-black text-white px-4 md:px-8 py-12 md:py-24">
@@ -91,7 +123,7 @@ export default function ContactContent() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <form action="https://formspree.io/f/xqeekqdo" method="POST" className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -171,20 +203,77 @@ export default function ContactContent() {
                 {/* Submit Button */}
                 <motion.button
                   type="submit"
-                  className="w-full px-8 py-4 bg-green-600 text-white text-xl font-bold rounded-lg hover:bg-green-500 transition-colors shadow-lg"
+                  disabled={isSubmitting}
+                  className="w-full px-8 py-4 bg-green-600 text-white text-xl font-bold rounded-lg hover:bg-green-500 transition-colors shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 1.0 }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </motion.button>
               </form>
             </motion.div>
           </div>
         </div>
       </div>
+
+      {/* Success Modal */}
+      <AnimatePresence>
+        {showModal && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowModal(false)}
+          >
+            <motion.div
+              className="bg-green-900/30 border-2 border-green-600 rounded-lg p-8 max-w-md w-full relative shadow-[0_0_30px_rgba(34,197,94,0.4)]"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setShowModal(false)}
+                className="absolute top-4 right-4 text-green-400 hover:text-green-300 transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              
+              <div className="flex flex-col items-center text-center">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                >
+                  <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
+                </motion.div>
+                
+                <h2 className="text-3xl font-bold text-green-400 mb-2">
+                  Message Sent!
+                </h2>
+                
+                <p className="text-white text-lg mb-6">
+                  Thank you for reaching out. We&apos;ll get back to you as soon as possible.
+                </p>
+                
+                <motion.button
+                  onClick={() => setShowModal(false)}
+                  className="px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-500 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Close
+                </motion.button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
