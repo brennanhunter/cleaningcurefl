@@ -91,7 +91,7 @@ export default function ContactContent() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" className="space-y-6">
+              <form action="https://formspree.io/f/xqeekqdo" method="POST" className="space-y-6">
                 {/* Name */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
