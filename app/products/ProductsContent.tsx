@@ -39,14 +39,14 @@ export default function ProductsContent() {
               >
                 <div className="relative h-[400px] mb-6">
                   <Image
-                    src="/images/mildew-cleaner.png"
-                    alt="Mildew Stain Remover"
+                    src="/images/mildont.png"
+                    alt="Mildont - Mildew Stain Remover"
                     fill
                     className="object-contain"
                   />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-green-500 mb-4">
-                  Mildew Stain Remover
+                  Mildont - Mildew Stain Remover
                 </h2>
                 <p className="text-white text-base md:text-lg leading-relaxed mb-6">
                   Powerful formula that instantly removes mildew stains from bathroom tile, grout, shower stalls, outdoor furniture, and more. No scrubbing required.
@@ -72,14 +72,14 @@ export default function ProductsContent() {
               >
                 <div className="relative h-[400px] mb-6">
                   <Image
-                    src="/images/drain-conditioner.png"
-                    alt="Drain Conditioner"
+                    src="/images/draindown.png"
+                    alt="Draindown - Drain Opener"
                     fill
                     className="object-contain"
                   />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-green-500 mb-4">
-                  Drain Conditioner
+                  Draindown - Drain Opener
                 </h2>
                 <p className="text-white text-base md:text-lg leading-relaxed mb-6">
                   Advanced drain maintenance solution that keeps drains flowing freely. Perfect for commercial kitchens, hotels, and high-traffic facilities.

@@ -22,7 +22,7 @@ export default function MildewContent() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Mildew Stain Remover
+            Mildont - Mildew Stain Remover
           </motion.h1>
           
           <motion.hr 
@@ -97,8 +97,8 @@ export default function MildewContent() {
           whileHover={{ scale: 1.08, x: -10 }}
         >
           <Image
-            src="/images/mildew-cleaner.png"
-            alt="Mildew Stain Remover Product"
+            src="/images/mildont.png"
+            alt="Mildont - Mildew Stain Remover Product"
             fill
             className="object-contain drop-shadow-2xl"
             priority

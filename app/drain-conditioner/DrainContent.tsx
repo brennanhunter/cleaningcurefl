@@ -22,7 +22,7 @@ export default function DrainContent() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Drain Opener & Conditioner
+            Draindown - Drain Opener
           </motion.h1>
           
           <motion.hr 
@@ -97,8 +97,8 @@ export default function DrainContent() {
           whileHover={{ scale: 1.08, x: -10 }}
         >
           <Image
-            src="/images/drain-conditioner.png"
-            alt="Drain Opener & Conditioner Product"
+            src="/images/draindown.png"
+            alt="Draindown - Drain Opener Product"
             fill
             className="object-contain drop-shadow-2xl"
             priority

@@ -56,7 +56,7 @@ export default function TrustBuilding() {
             </motion.div>
             
             {/* Overlapping Product Images */}
-            <div className="flex justify-center items-center mb-8 relative">
+            <div className="flex justify-center items-center gap-8 mb-8 relative">
               {/* Mildew Cleaner - Left */}
               <motion.div 
                 className="relative z-10 animate-float-subtle"
@@ -64,26 +64,26 @@ export default function TrustBuilding() {
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src="/images/mildew-cleaner.png"
-                  alt="Mildew Stain Remover"
-                  width={250}
-                  height={350}
+                  src="/images/mildont.png"
+                  alt="Mildont - Mildew Stain Remover"
+                  width={200}
+                  height={280}
                   className="object-contain"
                 />
               </motion.div>
               
               {/* Drain Conditioner - Right (overlapping) */}
               <motion.div 
-                className="relative z-20 -ml-[150px] animate-float-subtle"
+                className="relative z-20 animate-float-subtle"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
                 style={{ animationDelay: '0.5s' }}
               >
                 <Image
-                  src="/images/drain-conditioner.png"
-                  alt="Drain Conditioner"
-                  width={250}
-                  height={350}
+                  src="/images/draindown.png"
+                  alt="Draindown - Drain Opener"
+                  width={200}
+                  height={280}
                   className="object-contain"
                 />
               </motion.div>
